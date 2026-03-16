@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — TripMate</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a2b4d8b6f2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="auth-grid">
+    <aside class="leftbar">
+      <!-- same leftbar as index for consistency -->
+      <div class="brand">
+        <div class="logo">TM</div>
+        <div class="brand-name">TripMate</div>
+      </div>
+      <nav class="menu">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      </nav>
+    </aside>
+
+    <main class="auth-main">
+      <div class="auth-card card" data-aos="zoom-in">
+        <h2>Welcome back</h2>
+        <p class="muted">Sign in to save and manage your trips</p>
+
+        <form id="loginForm" class="vertical-form">
+          <label>Username</label>
+          <input id="username" autocomplete="username" required />
+          <label>Password</label>
+          <input id="password" type="password" autocomplete="current-password" required />
+          <label><input type="checkbox" id="remember"> Remember me</label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Login</button>
+            <button type="button" id="registerBtn" class="btn">Create account</button>
+          </div>
+
+          <div id="authMsg" class="muted small"></div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+
+</html>

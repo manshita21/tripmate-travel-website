@@ -1,0 +1,364 @@
+:root {
+  --bg: #f5f8fb;
+  --muted: #6b7280;
+  --accent1: rgba(72, 202, 228, 0.95);
+  --glass: rgba(255, 255, 255, 0.55);
+  --glass-2: rgba(255, 255, 255, 0.2);
+  --card-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, #f0f6fb, var(--bg));
+  color: #0b1220;
+}
+
+/* App grid: leftbar + main */
+.app-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh
+}
+
+/* Leftbar */
+.leftbar {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06)
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--accent1), #0077b6);
+  display: grid;
+  place-items: center;
+  color: white;
+  border-radius: 12px;
+  font-weight: 700
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 18px
+}
+
+/* menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px
+}
+
+.menu a {
+  color: #0b1220;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 600
+}
+
+.menu a:hover {
+  background: linear-gradient(90deg, rgba(72, 202, 228, 0.12), rgba(0, 119, 182, 0.08));
+  transform: translateX(6px);
+  transition: all .18s
+}
+
+.menu a.active {
+  background: linear-gradient(90deg, rgba(72, 202, 228, 0.16), rgba(0, 119, 182, 0.1));
+  box-shadow: var(--card-shadow)
+}
+
+/* left footer */
+.left-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.03);
+  font-size: 13px;
+  color: var(--muted)
+}
+
+/* Main */
+.main {
+  padding: 28px
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 26px
+}
+
+.muted {
+  color: var(--muted)
+}
+
+.clock {
+  font-weight: 700
+}
+
+/* Cards, hero, forms */
+.card {
+  background: var(--glass);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.5)
+}
+
+.hero {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 28px
+}
+
+.hero img {
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.06)
+}
+
+.form-card {
+  max-width: 760px;
+  margin-top: 18px
+}
+
+.vertical-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px
+}
+
+.vertical-form input,
+.vertical-form select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.06)
+}
+
+.row {
+  display: flex;
+  gap: 12px
+}
+
+.col {
+  flex: 1
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #fff, #fff);
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04)
+}
+
+.primary {
+  background: linear-gradient(90deg, #00b4d8, #48cae4);
+  color: white;
+  box-shadow: 0 8px 24px rgba(0, 180, 216, 0.12)
+}
+
+.season-box {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(72, 202, 228, 0.06), rgba(0, 119, 182, 0.04))
+}
+
+/* Top grid */
+.top-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 12px
+}
+
+.top-grid .card {
+  padding: 0;
+  overflow: hidden
+}
+
+.top-grid img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: transform .4s
+}
+
+.top-grid .card:hover img {
+  transform: scale(1.04)
+}
+
+.top-grid h3 {
+  padding: 12px
+}
+
+/* Auth pages */
+.auth-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh
+}
+
+.auth-main {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.auth-card {
+  width: 420px
+}
+
+/* Itinerary / Trips */
+.itinerary-spot {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start
+}
+
+.itinerary-spot img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px
+}
+
+.spots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 12px
+}
+
+/* Small utilities */
+.back-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600
+}
+
+.small {
+  font-size: 13px
+}
+
+/* Responsive */
+@media (max-width:900px) {
+  .app-grid {
+    grid-template-columns: 1fr
+  }
+
+  .leftbar {
+    display: none
+  }
+
+  .hero img {
+    display: none
+  }
+}
+
+
+
+
+
+/* --- Top 3 Most Visited Places --- */
+#top-places {
+  text-align: center;
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+#top-places h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2em;
+  color: #222;
+  margin-bottom: 30px;
+  margin-left: -120px;
+}
+
+.places-container {
+  display: flex;
+  justify-content: flex-start;
+  /* align items toward the left */
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 50px auto;
+  /* center within page but not extra right margin */
+  padding-left: 0;
+  margin-left: -80px;
+  /* small left offset for nice spacing */
+}
+
+.place-card {
+  /* flex: 1 1 300px;*/
+  /* flexible width for responsiveness */
+  max-width: 300px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.place-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 3px solid #eee;
+}
+
+.place-card h3 {
+  font-size: 1.4em;
+  margin: 10px 0 5px;
+  color: #0077b6;
+}
+
+.place-card p {
+  font-size: 0.95em;
+  color: #555;
+  padding: 0 15px 15px;
+}
+
+.place-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(0, 170, 255, 0.25);
+}

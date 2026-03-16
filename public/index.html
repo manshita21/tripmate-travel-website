@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TripMate — India</title>
+
+  <!-- AOS & GSAP & Icons -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a2b4d8b6f2.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app-grid">
+    <!-- Sidebar -->
+    <aside class="leftbar">
+      <div class="brand">
+        <div class="logo">TM</div>
+        <div class="brand-name">TripMate</div>
+      </div>
+
+      <nav class="menu">
+        <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="#plan" id="nav-plan"><i class="fas fa-map"></i> Plan Trip</a>
+        <a href="trips.html" id="nav-upcoming"><i class="fas fa-calendar-alt"></i> Upcoming Trips</a>
+        <a href="trips.html?type=past" id="nav-past"><i class="fas fa-history"></i> Past Trips</a>
+        <a href="login.html" id="nav-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="#" id="nav-logout" style="display:none"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+
+      <div class="left-footer">
+        <div id="userBadge" class="muted">Not signed in</div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <header class="main-header">
+        <div class="header-left">
+          <h1>Discover Incredible India</h1>
+          <p class="muted">Season-aware suggestions • Customize your itinerary • Save to your trips</p>
+        </div>
+        <div class="header-right">
+          <div id="clock" class="clock muted"></div>
+        </div>
+      </header>
+
+      <section class="hero card" data-aos="fade-up">
+        <div class="hero-left">
+          <h2>Plan your next adventure</h2>
+          <p class="muted">Pick dates, choose places, and we’ll suggest a season-friendly plan.</p>
+        </div>
+        <div class="hero-right">
+          <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&q=80&auto=format&fit=crop"
+            alt="India travel">
+        </div>
+      </section>
+
+      <!-- PLAN YOUR JOURNEY -->
+      <section id="plan" class="card form-card" data-aos="fade-right">
+        <h3>🧭 Plan Your Journey</h3>
+        <form id="planForm" class="vertical-form">
+
+          <label for="stateSelect">Select State:</label>
+          <select id="stateSelect" required>
+            <option value="">Select State</option>
+            <option value="Goa">Goa</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+          </select>
+
+          <label for="placeSelect">Select Tourist Place:</label>
+          <select id="placeSelect" required>
+            <option value="">Select Place</option>
+          </select>
+
+          <div class="row">
+            <div class="col">
+              <label>From</label>
+              <input type="date" id="fromDate" required />
+            </div>
+            <div class="col">
+              <label>To</label>
+              <input type="date" id="toDate" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label>Budget</label>
+              <select id="budget" required>
+                <option value="">Select Budget</option>
+                <option value="Under ₹5,000">Under ₹5,000</option>
+                <option value="₹5,000 – ₹10,000">₹5,000 – ₹10,000</option>
+                <option value="₹10,000 – ₹20,000">₹10,000 – ₹20,000</option>
+                <option value="Above ₹20,000">Above ₹20,000</option>
+              </select>
+            </div>
+            <div class="col">
+              <label>Customize Plan?</label>
+              <select id="customizeOpt">
+                <option value="no">Auto-generated only</option>
+                <option value="yes">Allow customizing itinerary</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn primary" id="suggestBtn">Suggest places (season)</button>
+            <button type="submit" class="btn" id="generateBtn">Generate Itinerary</button>
+          </div>
+
+          <div id="seasonBox" class="season-box muted"></div>
+        </form>
+      </section>
+
+      <section id="top-places" data-aos="zoom-in">
+        <h2>Top 3 Most Visited Places</h2>
+        <div class="places-container">
+          <div class="place-card">
+            <img
+              src="https://images.unsplash.com/photo-1582972236019-ea4af5ffe587?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1035"
+              alt="Goa">
+            <h3>Goa</h3>
+            <p>Known for its vibrant beaches, nightlife, and tropical charm.</p>
+          </div>
+
+          <div class="place-card">
+            <img
+              src="https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1171"
+              alt="Jaipur">
+            <h3>Jaipur</h3>
+            <p>The Pink City of India, rich with history and royal architecture.</p>
+          </div>
+
+          <div class="place-card">
+            <img
+              src="https://images.unsplash.com/photo-1579689189009-874f5cac2db5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1004"
+              alt="Manali">
+            <h3>Manali</h3>
+            <p>A serene hill station surrounded by snow-capped mountains.</p>
+          </div>
+        </div>
+      </section>
+
+
+
+      <footer class="muted small">Tip: Sign up to save trips. Images fetched live from Unsplash (secure via backend).
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    AOS.init({ duration: 700 });
+
+    // Restrict to future dates
+    const fromDate = document.getElementById("fromDate");
+    const toDate = document.getElementById("toDate");
+    const today = new Date().toISOString().split("T")[0];
+    fromDate.min = today;
+    toDate.min = today;
+
+    // Make sure "To" date is after "From" date
+    fromDate.addEventListener("change", () => {
+      toDate.min = fromDate.value;
+      if (toDate.value < fromDate.value) {
+        toDate.value = "";
+      }
+    });
+
+    // State → Tourist places
+    const stateSelect = document.getElementById("stateSelect");
+    const placeSelect = document.getElementById("placeSelect");
+    const statePlaces = {
+      "Goa": ["Baga Beach", "Calangute", "Fort Aguada"],
+      "Rajasthan": ["Jaipur", "Udaipur", "Jaisalmer"],
+      "Kerala": ["Munnar", "Alleppey", "Kochi"],
+      "Himachal Pradesh": ["Manali", "Shimla", "Dharamshala"],
+      "Tamil Nadu": ["Ooty", "Kodaikanal", "Chennai"]
+    };
+
+    stateSelect.addEventListener("change", () => {
+      const selectedState = stateSelect.value;
+      placeSelect.innerHTML = "<option value=''>Select Place</option>";
+      if (statePlaces[selectedState]) {
+        statePlaces[selectedState].forEach(place => {
+          const opt = document.createElement("option");
+          opt.value = place;
+          opt.textContent = place;
+          placeSelect.appendChild(opt);
+        });
+      }
+    });
+
+    // Suggest places based on season
+    document.getElementById("suggestBtn").addEventListener("click", () => {
+      const date = new Date(fromDate.value);
+      if (!fromDate.value) {
+        alert("Please select a start date first!");
+        return;
+      }
+
+      const month = date.getMonth() + 1;
+      let season = "";
+      let suggestions = "";
+
+      if (month >= 11 || month <= 2) {
+        season = "Winter";
+        suggestions = "Rajasthan, Goa, and Himachal Pradesh are perfect winter destinations.";
+      } else if (month >= 3 && month <= 6) {
+        season = "Summer";
+        suggestions = "Kerala, Sikkim, and Kashmir offer cool retreats during summer.";
+      } else {
+        season = "Monsoon";
+        suggestions = "Meghalaya, Coorg, and Munnar are lush and beautiful in the monsoon.";
+      }
+
+      document.getElementById("seasonBox").innerHTML =
+        `<strong>${season} Season:</strong> ${suggestions}`;
+    });
+
+    // Generate itinerary → go to itinerary.html
+    document.getElementById("planForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const state = stateSelect.value;
+      const place = placeSelect.value;
+      const from = fromDate.value;
+      const to = toDate.value;
+      const budget = document.getElementById("budget").value;
+
+      if (!state || !place || !from || !to || !budget) {
+        alert("Please fill all details!");
+        return;
+      }
+
+      // redirect with query parameters
+      const url = `itinerary.html?state=${encodeURIComponent(state)}&place=${encodeURIComponent(place)}&from=${from}&to=${to}&budget=${encodeURIComponent(budget)}`;
+      window.location.href = url;
+    });
+  </script>
+
+</body>
+
+</html>
